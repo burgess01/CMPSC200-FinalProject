@@ -3,30 +3,38 @@
 // this is a function that inputs an array value
 // in hexidecimal form and outputs its binary equivalent
 
+#include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
+#include <string.h>
 
-int h2b(int hex){
+#define LENGTH 10
+
+int h2b(){
     int res = 0;
+    char hex[LENGTH];
+    printf("Enter a hexidecimal number to convert to binary:");
+    scanf("%s", hex);
     // split hex into an array
-    int len = sizeof(hex) / sizeof(hex[0]);
+    int len = (int) strlen(hex);
     // iterate through, turning letter values to numbers
     for(int i = 0; i < len - 1; i++){
-        if(hex[i] = 'A'){
+        if(hex[i] == 'A'){
             hex[i] = 10;
         }
-        if(hex[i] = 'B'){
+        if(hex[i] == 'B'){
             hex[i] = 11;
         }
-        if(hex[i] = 'C'){
+        if(hex[i] == 'C'){
             hex[i] = 12;
         }
-        if(hex[i] = 'D'){
+        if(hex[i] == 'D'){
             hex[i] = 13;
         }
-        if(hex[i] = 'E'){
+        if(hex[i] == 'E'){
             hex[i] = 14;
         }
-        if(hex[i] = 'F'){
+        if(hex[i] == 'F'){
             hex[i] = 15;
         }
     }
@@ -60,7 +68,9 @@ int h2b(int hex){
             count = count - check; // get the difference
             res = res * pow(10, count); // multiply: 1 * 1000 = 1000 in binary = 8 in decimal
         }
+        hex[i] = res;
     }
     // return output
-    return res;
+    unsigned long result = atoi(hex); // might return wrong, check
+    return result;
 }

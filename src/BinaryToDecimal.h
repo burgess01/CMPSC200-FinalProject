@@ -4,13 +4,15 @@
 
 #include <math.h>
 
-int b2d(int binary){
+int b2d(){
+	int binary = 0;
+    printf("Enter a binary number to convert to decimal:");
+    scanf("%d", &binary);
     int value = 0, res = 0, count = 0;
 	unsigned long r = binary;
-	int temp = binary;
 
-	while(temp > 0){ //get the number of values
-		temp = temp / 10;
+	while(binary > 0){ //get the number of values
+		binary = binary / 10;
 		count++;
 	}
 	int q = 10;
